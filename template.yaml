@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda function for updating the commit status on GitHub based on CodePipeline execution state changes.
+
+Resources:
+
+  StatusUpdateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: index.handler
+      Runtime: nodejs8.10
+      Timeout: 3
+      Policies:
+        - AWSCodePipelineReadOnlyAccess
+        - AWSLambdaBasicExecutionRole
+      Environment:
+        Variables:
+          USERNAME: "{{resolve:ssm:/github/username:1}}"
+          ACCESS_TOKEN: "{{resolve:ssm:/github/personal_access_token:1}}"
+      Events:
+        Event:
+          Type: CloudWatchEvent
+          Properties:
+            Pattern:
+              source:
+                - aws.codepipeline
+              detail-type:
+                - "CodePipeline Pipeline Execution State Change"
+              detail:
+                state:
+                  - "STARTED"
+                  - "SUCCEEDED"
+                  - "FAILED"

@@ -1,0 +1,11 @@
+{
+    "extends": "standard",
+    "rules": {
+        "semi": ["error", "always"],
+        "no-unused-vars": ["warn"],
+        "no-unused-expressions": ["warn"]
+    },
+    "env": {
+      "mocha": true
+    }
+}

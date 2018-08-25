@@ -1,0 +1,24 @@
+{
+  "name": "status-update",
+  "version": "0.0.1",
+  "description": "Process events related to execution state changes of CodePipeline pipelines",
+  "scripts": {
+    "test": "mocha tests/unit/",
+    "lint": "./node_modules/.bin/eslint **/*.js"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.267.1",
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.1.1",
+    "chai": "^4.1.2",
+    "sinon": "^6.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
