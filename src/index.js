@@ -55,7 +55,7 @@ function createPayload (pipelineName, region, status) {
     state: status,
     'target_url': buildCodePipelineUrl(pipelineName, region),
     description: description,
-    context: 'codepipeline/' + pipelineName
+    context: 'continuous-integration/codepipeline'
   };
 }
 
