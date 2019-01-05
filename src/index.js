@@ -7,7 +7,6 @@ const BaseURL = 'https://api.github.com/repos';
 
 const codepipeline = new aws.CodePipeline();
 
-const Username = process.env.USERNAME;
 const Password = process.env.ACCESS_TOKEN;
 
 exports.handler = async (event) => {
@@ -94,7 +93,6 @@ exports.postStatusToGitHub = async (owner, repository, sha, payload) => {
       'Content-Type': 'application/json'
     },
     auth: {
-      username: Username,
       password: Password
     }
   };

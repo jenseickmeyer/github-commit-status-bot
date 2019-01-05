@@ -16,7 +16,6 @@ Resources:
         - AWSLambdaBasicExecutionRole
       Environment:
         Variables:
-          USERNAME: "{{resolve:ssm:/github/username:1}}"
           ACCESS_TOKEN: "{{resolve:ssm:/github/personal_access_token:1}}"
       Events:
         Event:
