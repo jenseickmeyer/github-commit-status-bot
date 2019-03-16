@@ -35,7 +35,7 @@ describe('Status update tests', function () {
       expect(payload).to.be.an('object');
       expect(payload.state).to.equal('pending');
       expect(payload['target_url']).to.equal('https://us-east-1.console.aws.amazon.com/codepipeline/home?region=us-east-1#/view/some-pipeline');
-      expect(payload.context).to.equal('codepipeline/some-pipeline');
+      expect(payload.context).to.equal('continuous-integration/codepipeline');
     });
 
     let result = await app.handler(event);
@@ -53,7 +53,7 @@ describe('Status update tests', function () {
       expect(payload).to.be.an('object');
       expect(payload.state).to.equal('success');
       expect(payload['target_url']).to.equal('https://us-east-1.console.aws.amazon.com/codepipeline/home?region=us-east-1#/view/some-pipeline');
-      expect(payload.context).to.equal('codepipeline/some-pipeline');
+      expect(payload.context).to.equal('continuous-integration/codepipeline');
     });
 
     let result = await app.handler(event);
@@ -71,7 +71,7 @@ describe('Status update tests', function () {
       expect(payload).to.be.an('object');
       expect(payload.state).to.equal('failure');
       expect(payload['target_url']).to.equal('https://us-east-1.console.aws.amazon.com/codepipeline/home?region=us-east-1#/view/some-pipeline');
-      expect(payload.context).to.equal('codepipeline/some-pipeline');
+      expect(payload.context).to.equal('continuous-integration/codepipeline');
     });
 
     let result = await app.handler(event);
