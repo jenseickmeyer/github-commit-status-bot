@@ -1,11 +1,23 @@
 {
-    "extends": "standard",
-    "rules": {
-        "semi": ["error", "always"],
-        "no-unused-vars": ["warn"],
-        "no-unused-expressions": ["warn"]
-    },
-    "env": {
-      "mocha": true
-    }
+  "extends": "standard",
+  "plugins": [
+    "mocha",
+    "chai-expect"
+  ],
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "warn"
+    ],
+    "no-unused-expressions": [
+      "warn"
+    ],
+    "mocha/no-exclusive-tests": "error"
+  },
+  "env": {
+    "mocha": true
+  }
 }
