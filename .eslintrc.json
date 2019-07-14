@@ -1,9 +1,12 @@
 {
-  "extends": "standard",
-  "plugins": [
-    "mocha",
-    "chai-expect"
-  ],
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
   "rules": {
     "semi": [
       "error",
@@ -11,13 +14,6 @@
     ],
     "no-unused-vars": [
       "warn"
-    ],
-    "no-unused-expressions": [
-      "warn"
-    ],
-    "mocha/no-exclusive-tests": "error"
-  },
-  "env": {
-    "mocha": true
+    ]
   }
 }
