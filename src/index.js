@@ -42,7 +42,7 @@ function transformState (state) {
 
 function createPayload (pipelineName, region, status) {
   let description;
-  if (status === 'started') {
+  if (status === 'pending') {
     description = 'Build started';
   } else if (status === 'success') {
     description = 'Build succeeded';
