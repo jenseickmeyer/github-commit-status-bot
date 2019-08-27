@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.267.1",
-    "eslint": "^6.1.0",
-    "mocha": "^5.1.1",
-    "chai": "^4.1.2",
-    "sinon": "^6.1.0"
+    "eslint": "^6.2.2",
+    "mocha": "^6.2.0",
+    "sinon": "^7.4.1",
+    "chai": "^4.2.0"
   },
   "dependencies": {
     "axios": "^0.18.1"
