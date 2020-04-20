@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-S3_BUCKET=
+S3_BUCKET=5stream-bot
 INPUT_FILE=template.yaml
 OUTPUT_FILE=template-output.yaml
-REGION=eu-central-1
+REGION=ap-southeast-2
 STACK_NAME=github-commit-status-bot
 
 cd src && npm install && npm run-script lint && npm test && npm prune --production && cd ..
