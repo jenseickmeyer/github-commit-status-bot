@@ -15,6 +15,6 @@
     "lodash": ">=4.17.19"
   },
   "dependencies": {
-    "axios": "^0.18.1"
+    "axios": "^0.21.1"
   }
 }
