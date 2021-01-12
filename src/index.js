@@ -1,11 +1,11 @@
 'use strict';
 
-const aws = require('aws-sdk');
+const { CodePipeline } = require('@aws-sdk/client-codepipeline');
 const axios = require('axios');
 
 const BaseURL = 'https://api.github.com/repos';
 
-const codepipeline = new aws.CodePipeline();
+const codepipeline = new CodePipeline();
 
 const Password = process.env.ACCESS_TOKEN;
 
@@ -68,7 +68,7 @@ exports.getPipelineExecution = async (pipelineName, executionId) => {
     pipelineExecutionId: executionId
   };
 
-  const result = await codepipeline.getPipelineExecution(params).promise();
+  const result = await codepipeline.getPipelineExecution(params);
   const artifactRevision = result.pipelineExecution.artifactRevisions[0];
 
   const revisionURL = artifactRevision.revisionUrl;
