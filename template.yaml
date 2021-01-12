@@ -19,7 +19,7 @@ Resources:
           ACCESS_TOKEN: "{{resolve:ssm:/github/personal_access_token:1}}"
       Events:
         Event:
-          Type: CloudWatchEvent
+          Type: EventBridgeRule
           Properties:
             Pattern:
               source:
