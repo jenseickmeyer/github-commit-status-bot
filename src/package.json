@@ -12,7 +12,7 @@
     "mocha": "^8.2.1",
     "sinon": "^7.4.1",
     "chai": "^4.2.0",
-    "lodash": ">=4.17.19"
+    "lodash": ">=4.17.21"
   },
   "dependencies": {
     "axios": "^0.21.1"
