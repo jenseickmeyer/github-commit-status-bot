@@ -72,16 +72,23 @@ exports.getPipelineExecution = async (pipelineName, executionId) => {
   const artifactRevision = result.pipelineExecution.artifactRevisions[0];
 
   const revisionURL = artifactRevision.revisionUrl;
-  const sha = artifactRevision.revisionId;
 
   const pattern = /github.com\/(.+)\/(.+)\/commit\//;
   const matches = pattern.exec(revisionURL);
 
-  return {
-    owner: matches[1],
-    repository: matches[2],
-    sha: sha
-  };
+  if (matches !== null) {
+    const sha = artifactRevision.revisionId;
+
+    return { owner: matches[1], repository: matches[2], sha };
+  }
+
+  const revisionParams = new URLSearchParams(new URL(revisionURL).search);
+  const fullRepository = revisionParams.get('FullRepositoryId');
+  const owner = fullRepository.split('/')[0];
+  const repository = fullRepository.split('/')[1];
+  const sha = revisionParams.get('Commit');
+
+  return { owner, repository, sha };
 };
 
 exports.postStatusToGitHub = async (owner, repository, sha, payload) => {
