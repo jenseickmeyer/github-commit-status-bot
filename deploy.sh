@@ -3,7 +3,7 @@
 S3_BUCKET=
 INPUT_FILE=template.yaml
 OUTPUT_FILE=template-output.yaml
-REGION=eu-central-1
+REGION=eu-west-1
 STACK_NAME=github-commit-status-bot
 
 cd src && npm install && npm run-script lint && npm test && npm prune --production && cd ..

@@ -15,10 +15,24 @@ aws ssm put-parameter --name /github/personal_access_token --value TOKEN --type 
 
 It's important to use the key `/github/personal_access_token` since this is used in the SAM template.
 
-Next, the deployment script deploy.sh must be changed slightly. The variable `S3_BUCKET` must be set to the name of the S3 bucket into which deployment artifacts should be stored. If in doubt it makes sense to create a new bucket for this purpose. Other things can be changed, too, like the name of the CloudFormation stack that will be created for this application.
+Next, the deployment script deploy.sh must be changed slightly. The variable `S3_BUCKET` must be set to the name of the S3 bucket into which deployment artifacts should be stored.
+
+Do not forget to fetch fresh credentials for desired AWS account and set them as default.
 
 Finally, the deployment script can just be executed
 
 ```bash
 bash deploy
 ```
+
+At the moment `github-commit-status-bot` stack is deployed to `honeycomb-dev2` and `honeycomb-dev4` accounts.
+The corresponding configuration is:
+```yaml
+honeycomb-dev2:
+  S3_BUCKET: bgch-dev2-provisioning
+honeycomb-dev4:
+  S3_BUCKET: shared-serverless-deploys-eu-west-1
+```
+
+## Maintainers
+PLAT Team

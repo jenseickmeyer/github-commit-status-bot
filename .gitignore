@@ -63,3 +63,5 @@ typings/
 template-output.yaml
 
 .DS_store
+
+.idea
